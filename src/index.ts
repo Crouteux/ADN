@@ -52,7 +52,7 @@ type Codons = `${Nucleotide}${Nucleotide}${Nucleotide}`;
  * @param sequence Séquence ADN
  * @returns Liste de codons
  */
-const codons = (sequence: string): Codons[] => {
+export const codons = (sequence: string): Codons[] => {
     const lst = [];
     for (let i = 0; i < sequence.length; i += 3) {
         lst.push(sequence.substring(i, i + 3) as Codons);
@@ -65,7 +65,7 @@ const codons = (sequence: string): Codons[] => {
  * @param codons Liste de codons
  * @returns Liste d'acides aminés
  */
-const translate = (codons: Codons[]): AminoAcid[] => {
+export const translate = (codons: Codons[]): AminoAcid[] => {
     const acids = [];
     codons.forEach((codon) => {
         CODONS.forEach((line) => {
@@ -84,7 +84,7 @@ const translate = (codons: Codons[]): AminoAcid[] => {
  * @param acids Liste d'acides aminés
  * @returns Liste d'acides aminés séparée
  */
-const read_genes = (acids: AminoAcid[]): AminoAcid[][] => {
+export const readGenes = (acids: AminoAcid[]): AminoAcid[][] => {
     const genes = [[]];
     acids.forEach((protein) => {
         genes[genes.length - 1].push(protein);
@@ -94,9 +94,9 @@ const read_genes = (acids: AminoAcid[]): AminoAcid[][] => {
     return genes;
 };
 
-const read_adn = (sequence: string) => {
+export const readAdn = (sequence: string) => {
     if (sequence.length % 3 != 0) return -1;
-    const genes = read_genes(translate(codons(sequence)));
+    const genes = readGenes(translate(codons(sequence)));
 
     console.log(genes);
     console.log(genes.length);
