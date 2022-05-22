@@ -1,0 +1,24 @@
+{
+    "name": "adn",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node dist",
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Crouteux/ADN.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Crouteux/ADN/issues"
+    },
+    "homepage": "https://github.com/Crouteux/ADN#readme",
+    "devDependencies": {
+        "typescript": "^4.6.4"
+    }
+}
